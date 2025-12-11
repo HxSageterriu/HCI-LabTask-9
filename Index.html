@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    form {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    div {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="button"] {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #b30000;
+    }
+    #gradeBox {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <div>
+      <label for="name">Enter Your Name:</label><br>
+      <input type="text" id="name" placeholder="Your Name" >
+    </div>
+    <div>
+      <label for="age">Enter Your Age:</label><br>
+      <input type="number" id="age" placeholder="Your Age" >
+    </div>
+    <div>
+      <label for="marks">Enter Your Marks:</label><br>
+      <input type="number" id="marks" placeholder="Your Marks">
+    </div>
+    <input type="button" onclick="gradeStd()" value="Submit">
+  </form>
+
+  <div id="gradeBox">
+    <p>Your grade is: <span id="grade">N/A</span></p>
+  </div>
+
+  <script>
+    function gradeStd() {
+      let marks = parseInt(document.getElementById('marks').value);
+      let grade;
+
+      if (isNaN(marks) || marks < 0 || marks > 100) {
+        grade = "Invalid marks!";
+      } else if (marks >= 90) {
+        grade = "A";
+      } else if (marks >= 80) {
+        grade = "B";
+      } else if (marks >= 70) {
+        grade = "C";
+      } else if (marks >= 60) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+
+      document.getElementById('grade').innerText = grade;
+    }
+  </script>
+
+</body>
+</html>
